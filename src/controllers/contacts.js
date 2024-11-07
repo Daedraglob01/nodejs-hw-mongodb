@@ -20,7 +20,7 @@ import {
     const { contactId } = req.params;
     const contact = await getContactById(contactId);
     if (!contact) {
-      next(createHttpError(404, 'Contact not found'));
+      throw(createHttpError(404, 'Contact not found'));
     }
   
     res.json({
@@ -53,8 +53,7 @@ import {
     const result = await updateContact(contactId, req.body);
   
     if (!result) {
-      next(createHttpError(404, 'Contact not found'));
-      return;
+      throw(createHttpError(404, 'Contact not found'));
     }
   
     res.json({
@@ -70,7 +69,7 @@ import {
     const student = await deleteContact(contactId);
   
     if (!student) {
-      next(createHttpError(404, 'Contact not found'));
+      throw(createHttpError(404, 'Contact not found'));
       return;
     }
   
