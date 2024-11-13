@@ -14,13 +14,15 @@ export const createContactSchema = Joi.object({
       'string.base': 'Phone number should be a string',
       'string.pattern.base':
         'Phone number should be in the format +380000000000',
+      'any.required': 'Phone number is required',
+
     }),
   email: Joi.string().email().min(3).max(20).required().messages({
     'string.base': 'Email should be a string',
     'string.email': 'Email must be a valid email address',
     'string.min': 'Email should have at least 3 characters',
     'string.max': 'Email should have at most 20 characters',
-    'any.required': 'Email is required',
+
   }),
   isFavourite: Joi.boolean().messages({
     'boolean.base': '"Favourite" should be a boolean',
