@@ -14,7 +14,6 @@ export const createContactSchema = Joi.object({
       'string.base': 'Phone number should be a string',
       'string.pattern.base':
         'Phone number should be in the format +380000000000',
-      'any.required': 'Phone number is required',
     }),
   email: Joi.string().email().min(3).max(20).required().messages({
     'string.base': 'Email should be a string',
